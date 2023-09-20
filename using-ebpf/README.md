@@ -2,8 +2,17 @@
 
 ## 环境
 - docker 24.0.2
+- debian 11.7
 
 ## 快速开始
+
+### 1. 宿主机安装内核头部文件
+
+```bash
+apt install -y linux-headers-$(uname -r)
+```
+
+### 2. 运行示例
 
 ```bash
 bas play.sh
