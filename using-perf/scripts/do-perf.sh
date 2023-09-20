@@ -14,9 +14,9 @@ perf record --call-graph=dwarf -e sched:sched_stat_sleep -e sched:sched_switch \
 
 out=scripts/offcpu-$tag.svg
 
-perf script -i perf-$tag.data -F comm,pid,tid,cpu,time,period,event,ip,sym,dso,trace | \
-    ./FlameGraph/stackcollapse-perf.pl | \
-    ./FlameGraph/flamegraph.pl --countname=ms --title="Off-CPU Time Flame Graph" --colors=io > $out
+perf script -i perf-$tag.data -F comm,pid,tid,cpu,time,period,event,ip,sym,dso,trace    | \
+    stackcollapse-perf.pl                                                               | \
+    flamegraph.pl --countname=ms --title="Off-CPU Time Flame Graph" --colors=io > $out
 
 echo ""
 echo "火焰图已输出至 $out"
