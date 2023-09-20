@@ -5,6 +5,12 @@
 
 ## 快速开始
 
+### 1. 更改内核设置
+```bash
+echo 1 > /proc/sys/kernel/sched_schedstats
+```
+
+### 2. 运行示例
 ```bash
 bash play.sh
 ```
